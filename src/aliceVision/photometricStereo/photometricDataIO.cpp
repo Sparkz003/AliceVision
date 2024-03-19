@@ -521,9 +521,9 @@ void writePSResults(const std::string& outputPath, const image::Image<image::RGB
       image::ImageWriteOptions().toColorSpace(image::EImageColorSpace::NO_CONVERSION).storageDataType(image::EStorageDataType::Float));
 
     image::writeImage(
-      outputPath + "/albedo.exr",
+      outputPath + "/albedo.png",
       albedo,
-      image::ImageWriteOptions().toColorSpace(image::EImageColorSpace::NO_CONVERSION).storageDataType(image::EStorageDataType::Float));
+      image::ImageWriteOptions().toColorSpace(image::EImageColorSpace::NO_CONVERSION).storageDataType(image::EStorageDataType::Half));
 }
 
 void writePSResults(const std::string& outputPath,
@@ -547,6 +547,11 @@ void writePSResults(const std::string& outputPath,
       outputPath + "/" + std::to_string(poseId) + "_albedo.exr",
       albedo,
       image::ImageWriteOptions().toColorSpace(image::EImageColorSpace::NO_CONVERSION).storageDataType(image::EStorageDataType::Float));
+
+    image::writeImage(
+      outputPath + "/" + std::to_string(poseId) + "_albedo.png",
+      albedo,
+      image::ImageWriteOptions().toColorSpace(image::EImageColorSpace::NO_CONVERSION).storageDataType(image::EStorageDataType::Half));
 }
 
 }  // namespace photometricStereo
